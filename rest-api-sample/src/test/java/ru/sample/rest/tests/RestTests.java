@@ -23,7 +23,6 @@ public class RestTests extends TestBase{
   }
 
   @Test
-  // Used queries because if we don't have some specific user, we simply can change him to another
   public void searchSamanthaPosts() {
     List<Integer> samanthasPostsIds = getUserPostsIdsByQuery();
     assertThat(samanthasPostsIds.size(), equalTo(10));
@@ -48,6 +47,7 @@ public class RestTests extends TestBase{
     return users;
   }
 
+  // Used queries because if we don't have some specific user, we simply can change him to another
   private List<Integer> getUserPostsIdsByQuery() {
     Response userResponse = getResponseWithQuery(Endpoints.USERS, QueryParameters.USERNAME_PARAM, QueryParameters.MY_USER);
     String idFromJson = userResponse.jsonPath().getString("id");
@@ -65,23 +65,23 @@ public class RestTests extends TestBase{
 
   private Response getResponseWithParameter(String endpoint, Integer id) {
     Response response = get(endpoint, id)
-            .then().statusCode(200)
-            .and().extract().response();
+                       .then().statusCode(200)
+                       .and().extract().response();
     return response;
   }
 
   private Response getResponse(String endpoint) {
     Response response = get(endpoint)
-            .then().statusCode(200)
-            .and().extract().response();
+                       .then().statusCode(200)
+                       .and().extract().response();
     return response;
   }
 
   private Response getResponseWithQuery(String endpoint, String queryParam, String value) {
     Response response = given().queryParam(queryParam, value)
-            .when().get(endpoint)
-            .then().statusCode(200)
-            .and().extract().response();
+                       .when().get(endpoint)
+                       .then().statusCode(200)
+                       .and().extract().response();
     return response;
   }
 }
