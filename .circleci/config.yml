@@ -11,6 +11,6 @@ jobs:
     steps:
       - checkout
 
-      - run: ./gradlew build
+      - run: gradle build
 
-      - run: ./gradlew test
+      - run: gradle test
