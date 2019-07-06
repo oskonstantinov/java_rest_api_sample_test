@@ -11,6 +11,6 @@ dependencies {
     implementation 'commons-validator:commons-validator:1.6'
 }
 
-task test(type: Test) {
+test{
     useTestNG()
 }
