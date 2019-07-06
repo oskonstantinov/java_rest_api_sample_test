@@ -10,6 +10,7 @@ jobs:
 
     steps:
       - checkout
+      - run: cd rest-api-sample
 
       - run: gradlew build
 
