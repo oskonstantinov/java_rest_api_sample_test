@@ -7,7 +7,12 @@ jobs:
 
     steps:
       - checkout
-      - run: gradle wrapper
-      - run: chmod +x gradlew
-      - run: ./gradlew build
-      - run: ./gradlew test
+      - restore_cache:
+          keys:
+            - gradle-{{ checksum "build.gradle" }}
+      - run: gradle build
+      - - save_cache:
+            paths:
+              - ~/.gradle
+            key: gradle-{{ checksum "build.gradle" }}
+      - run: gradle test
