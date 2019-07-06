@@ -7,6 +7,6 @@ jobs:
 
     steps:
       - checkout
-
+      - run: chmod +x gradlew
       - run: ./gradlew build
       - run: ./gradlew test
