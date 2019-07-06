@@ -11,7 +11,7 @@ jobs:
           keys:
             - gradle-{{ checksum "build.gradle" }}
       - run: gradle build
-      - - save_cache:
+      - save_cache:
             paths:
               - ~/.gradle
             key: gradle-{{ checksum "build.gradle" }}
