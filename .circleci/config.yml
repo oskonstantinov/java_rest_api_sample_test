@@ -10,7 +10,8 @@ jobs:
 
     steps:
       - checkout
+      - run: gradle --refresh-dependencies
 
-      - run: gradle clean build
+      - run: gradle build
 
       - run: gradle test
