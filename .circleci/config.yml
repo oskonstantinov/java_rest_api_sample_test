@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
 
-    working_directory: ~/java_rest_api_sample_test/rest-api-sample
+    working_directory: ~/rest-api-sample
 
     docker:
       - image: circleci/openjdk:8-jdk-browsers
